@@ -4,53 +4,32 @@ class Program
 {
     static void Main()
     {
-        // Vetor para guardar os nomes
-        string[] nomes = new string[5];
+        // 3 alunos e 5 dias
+        int[,] presenca = new int[3,5];
 
-        // Matriz para guardar as 3 notas de cada aluno
-        double[,] notas = new double[5, 3];
-
-        // Vetor para guardar a média
-        double[] medias = new double[5];
-
-        // Cadastro
-        for (int i = 0; i < 5; i++)
+        for (int aluno = 0; aluno < 3; aluno++)
         {
-            Console.Write("Nome do aluno: ");
-            nomes[i] = Console.ReadLine()!;
+            Console.WriteLine("\nAluno " + (aluno + 1));
 
-            double soma = 0;
-
-            for (int j = 0; j < 3; j++)
+            for (int dia = 0; dia < 5; dia++)
             {
-                Console.Write("Nota " + (j + 1) + ": ");
-                notas[i, j] = Convert.ToDouble(Console.ReadLine());
-
-                soma += notas[i, j];
+                Console.Write("Dia " + (dia + 1) + " (1=Presente / 0=Faltou): ");
+                presenca[aluno,dia] = Convert.ToInt32(Console.ReadLine());
             }
-
-            medias[i] = soma / 3;
         }
 
-        Console.WriteLine("\n===== BOLETIM =====");
+        Console.WriteLine("\n===== RESULTADO =====");
 
-        for (int i = 0; i < 5; i++)
+        for (int aluno = 0; aluno < 3; aluno++)
         {
-            Console.WriteLine("\nAluno: " + nomes[i]);
-            Console.WriteLine("Média: " + medias[i].ToString("F2"));
+            int total = 0;
 
-            if (medias[i] >= 7)
+            for (int dia = 0; dia < 5; dia++)
             {
-                Console.WriteLine("Situação: Aprovado");
+                total += presenca[aluno,dia];
             }
-            else if (medias[i] >= 5)
-            {
-                Console.WriteLine("Situação: Recuperação");
-            }
-            else
-            {
-                Console.WriteLine("Situação: Reprovado");
-            }
+
+            Console.WriteLine("Aluno " + (aluno + 1) + ": " + total + " presenças");
         }
     }
 }

@@ -4,19 +4,27 @@ class Program
 {
     static void Main()
     {
-        double[] notas = new double[5];
-        double soma = 0;
+        int[,] tabela = new int[2,3];
 
-        for (int i = 0; i < notas.Length; i++)
+        for (int linha = 0; linha < 2; linha++)
         {
-            Console.Write("Digite a nota do aluno " + (i + 1) + ": ");
-            notas[i] = Convert.ToDouble(Console.ReadLine());
-
-            soma += notas[i];
+            for (int coluna = 0; coluna < 3; coluna++)
+            {
+                Console.Write("Digite um número: ");
+                tabela[linha,coluna] = Convert.ToInt32(Console.ReadLine());
+            }
         }
 
-        double media = soma / notas.Length;
+        Console.WriteLine("\nTabela:");
 
-        Console.WriteLine("\nMédia da turma: " + media.ToString("F2"));
+        for (int linha = 0; linha < 2; linha++)
+        {
+            for (int coluna = 0; coluna < 3; coluna++)
+            {
+                Console.Write(tabela[linha,coluna] + "\t");
+            }
+
+            Console.WriteLine();
+        }
     }
 }

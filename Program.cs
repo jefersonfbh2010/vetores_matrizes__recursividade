@@ -2,34 +2,22 @@
 
 class Program
 {
+    // Função recursiva
+    static int Somar(int numero)
+    {
+        if (numero == 1)
+        {
+            return 1;
+        }
+
+        return numero + Somar(numero - 1);
+    }
+
     static void Main()
     {
-        // 3 alunos e 5 dias
-        int[,] presenca = new int[3,5];
+        Console.Write("Digite um número: ");
+        int numero = Convert.ToInt32(Console.ReadLine());
 
-        for (int aluno = 0; aluno < 3; aluno++)
-        {
-            Console.WriteLine("\nAluno " + (aluno + 1));
-
-            for (int dia = 0; dia < 5; dia++)
-            {
-                Console.Write("Dia " + (dia + 1) + " (1=Presente / 0=Faltou): ");
-                presenca[aluno,dia] = Convert.ToInt32(Console.ReadLine());
-            }
-        }
-
-        Console.WriteLine("\n===== RESULTADO =====");
-
-        for (int aluno = 0; aluno < 3; aluno++)
-        {
-            int total = 0;
-
-            for (int dia = 0; dia < 5; dia++)
-            {
-                total += presenca[aluno,dia];
-            }
-
-            Console.WriteLine("Aluno " + (aluno + 1) + ": " + total + " presenças");
-        }
+        Console.WriteLine("Soma = " + Somar(numero));
     }
 }

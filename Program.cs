@@ -2,15 +2,16 @@
 
 class Program
 {
-    // Função recursiva
-    static int Somar(int numero)
+    static void Contagem(int numero)
     {
-        if (numero == 1)
+        Console.WriteLine(numero);
+
+        if (numero == 0)
         {
-            return 1;
+            return;
         }
 
-        return numero + Somar(numero - 1);
+        Contagem(numero - 1);
     }
 
     static void Main()
@@ -18,6 +19,6 @@ class Program
         Console.Write("Digite um número: ");
         int numero = Convert.ToInt32(Console.ReadLine());
 
-        Console.WriteLine("Soma = " + Somar(numero));
+        Contagem(numero);
     }
 }

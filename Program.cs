@@ -4,22 +4,19 @@ class Program
 {
     static void Main()
     {
-        // Cria um vetor para guardar os nomes de 5 alunos
-        string[] alunos = new string[5];
+        double[] notas = new double[5];
+        double soma = 0;
 
-        // Lê os nomes
-        for (int i = 0; i < alunos.Length; i++)
+        for (int i = 0; i < notas.Length; i++)
         {
-            Console.Write("Digite o nome do aluno " + (i + 1) + ": ");
-            alunos[i] = Console.ReadLine()!;
+            Console.Write("Digite a nota do aluno " + (i + 1) + ": ");
+            notas[i] = Convert.ToDouble(Console.ReadLine());
+
+            soma += notas[i];
         }
 
-        Console.WriteLine("\nAlunos cadastrados:");
+        double media = soma / notas.Length;
 
-        // Mostra todos os nomes
-        for (int i = 0; i < alunos.Length; i++)
-        {
-            Console.WriteLine(alunos[i]);
-        }
+        Console.WriteLine("\nMédia da turma: " + media.ToString("F2"));
     }
 }

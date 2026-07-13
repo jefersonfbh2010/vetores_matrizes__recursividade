@@ -2,23 +2,26 @@
 
 class Program
 {
-    static void Contagem(int numero)
+    static int Fibonacci(int n)
     {
-        Console.WriteLine(numero);
-
-        if (numero == 0)
+        if (n == 0)
         {
-            return;
+            return 0;
         }
 
-        Contagem(numero - 1);
+        if (n == 1)
+        {
+            return 1;
+        }
+
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
     }
 
     static void Main()
     {
-        Console.Write("Digite um número: ");
+        Console.Write("Digite a posição: ");
         int numero = Convert.ToInt32(Console.ReadLine());
 
-        Contagem(numero);
+        Console.WriteLine("Resultado: " + Fibonacci(numero));
     }
 }
